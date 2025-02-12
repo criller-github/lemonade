@@ -71,4 +71,5 @@ button:focus-visible {
 
 .text-uppercase{
   text-transform: uppercase;
+  color: #f9f9f9;
 }
