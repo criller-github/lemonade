@@ -1,4 +1,4 @@
-TL:DR
+TL:DR  
 • LemonadeStand-funktionen kører stadig som oprindeligt beskrevet  
 • Shop-delen henter eksterne “lemon”-drinks og lader brugeren tilføje dem til en “Cart.”  
 • Cart-delen giver overblik over valgte drinks og muligheden for at ændre antallet eller helt at fjerne dem  
