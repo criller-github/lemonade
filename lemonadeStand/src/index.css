@@ -1,75 +1,223 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-  margin: 2em 1em;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
+ html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
   }
   a:hover {
-    color: #747bff;
+    color: #535bf2;
   }
+
+  h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+  }
+  
+  /* Knapper */
   button {
-    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    margin: 2em 1em;
+  }
+  button:hover {
+    border-color: #d7d7d8;
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+  
+  /* Light-mode overrides */
+  @media (prefers-color-scheme: light) {
+    :root {
+      color: #213547;
+      background-color: #ffffff;
+    }
+    a:hover {
+      color: #747bff;
+    }
+    button {
+      background-color: #f9f9f9;
+    }
+  }
+  
+  /* Ekstra styling */
+  .text-uppercase{
+    text-transform: uppercase;
+    color: #f9f9f9;
+  }
+  
+
+  /* Navbar */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: #343434;
+  }
+  
+  /* nav knap */
+  .nav-button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    color: #f9f9f9;
+    text-decoration: none;
+  }
+  .nav-button:hover {
+    border-color: #d7d7d8;
+    color: #f9f9f9;
+  }
+  
+
+
+  /* main content */
+  .main-content {
+    padding-top: 6rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 6rem; 
+  }
+  
+
+  /* CART */
+/* Overordnet layout for cart-siden */
+.cart-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-top: 2rem;
+}
+
+/* Ved tablet/mindre skærme => 1 kolonne */
+@media (max-width: 768px) {
+  .cart-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto; /* Items øverst, checkout nederst */
   }
 }
 
+/* Venstre søjle: cart-items */
+.cart-items {
+  display: flex;
+  flex-direction: column; 
+  gap: 1rem; /* Afstand mellem hvert item */
+}
 
-.text-uppercase{
-  text-transform: uppercase;
-  color: #f9f9f9;
+/* Hver item er horisontal: venstre => cart-left, højre => cart-right */
+.cart-row {
+  display: flex;
+  gap: 1rem;
+  background-color: #2d2d2d;
+  border-radius: 8px;
+}
+
+
+.cart-left img {
+  width: 250px; 
+  height: auto;
+  border-radius: 6px;
+}
+
+/* cart-right: quantity + remove-knap */
+.cart-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.cart-right button {
+  margin: 1rem 0 1rem 0;
+}
+
+.cart-summary button {
+  margin: 0;
+}
+
+/* Højre søjle => checkout */
+.cart-summary {
+  background-color: #2d2d2d; 
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: left; 
+  height: fit-content; 
+}
+
+.cart-summary h3 {
+  margin-top: 0;
+}
+
+  
+
+  /* shop */
+
+  .shop-grid {
+    display: grid;
+    gap: 5rem;
+    row-gap: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+    justify-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+.shop-item {
+  width: 250px;
+  background-color: #2d2d2d;
+  border-radius: 8px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.shop-item img {
+  width: 100%; 
+  height: auto;
 }
